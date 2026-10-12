@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RİKO TARIM - IBAN</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7f2;
+    color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.card {
+    width: 90%;
+    max-width: 420px;
+    background: white;
+    padding: 30px 20px;
+    border-radius: 20px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 5px;
+    color: #2d6a32;
+}
+
+.subtitle {
+    margin-bottom: 25px;
+    color: #666;
+}
+
+.iban-box {
+    background: #f1f3f1;
+    padding: 18px;
+    border-radius: 12px;
+    word-break: break-all;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background: #2d6a32;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+#message {
+    margin-top: 12px;
+    color: #2d6a32;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <h1>RİKO TARIM</h1>
+
+    <div class="subtitle">
+        Meyve & Sebze Alım Satım
+    </div>
+
+    <div class="iban-box" id="iban">
+        IBAN_NUMARASI_BURAYA
+    </div>
+
+    <button onclick="copyIBAN()">
+        IBAN'ı Kopyala
+    </button>
+
+    <div id="message"></div>
+
+</div>
+
+<script>
+function copyIBAN() {
+
+    const iban = document.getElementById("iban").innerText.trim();
+
+    navigator.clipboard.writeText(iban).then(function() {
+
+        document.getElementById("message").innerText =
+            "IBAN kopyalandı ✓";
+
+    }).catch(function() {
+
+        document.getElementById("message").innerText =
+            "Kopyalama başarısız. Lütfen tekrar deneyin.";
+
+    });
+}
+</script>
+
+</body>
+</html>
